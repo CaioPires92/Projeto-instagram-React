@@ -107,7 +107,7 @@ export default function Posts() {
         <div data-test="post" className="post" key={post.id}>
           <div className="topo">
             <div className="usuario">
-              <img data-test="post-image" src={post.imagem} alt={post.name} />
+              <img src={post.imagem} alt={post.name} />
               {post.name}
             </div>
             <div className="acoes">
@@ -118,6 +118,7 @@ export default function Posts() {
           <div
             className="conteudo"
             onClick={() => handleImageClickLike(post.id)}
+            data-test="post-image"
           >
             <img src={post.imgConteudo} alt={post.conteudoName} />
           </div>
