@@ -89,10 +89,11 @@ export default function Posts() {
   function handleImageClickLike(postId) {
     setPostLikes(prevPostLikes => {
       return prevPostLikes.map(postLike => {
-        if (postLike.id === postId) {
+        if (postLike.id === postId && !postLike.isLiked) {
           return {
             ...postLike,
-            isLiked: true
+            isLiked: true,
+            likes: postLike.likes + 1
           }
         }
         return postLike
