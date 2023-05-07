@@ -23,11 +23,20 @@ export default function Sidebar() {
   return (
     <div className="sidebar">
       <div className="usuario">
-        <img onClick={handleChangePerfil} src={perfil} alt="imagem de perfil" />
+        <img
+          data-test="profile-image"
+          onClick={handleChangePerfil}
+          src={perfil}
+          alt="imagem de perfil"
+        />
         <div className="texto">
           <span>
-            <strong>{userName}</strong>
-            <ion-icon name="pencil" onClick={handleIconClick}></ion-icon>
+            <strong data-test="name">{userName}</strong>
+            <ion-icon
+              data-test="edit-name"
+              name="pencil"
+              onClick={handleIconClick}
+            ></ion-icon>
           </span>
         </div>
       </div>

@@ -103,10 +103,10 @@ export default function Posts() {
   return (
     <div className="posts">
       {listaPost.map(post => (
-        <div className="post" key={post.id}>
+        <div data-test="post" className="post" key={post.id}>
           <div className="topo">
             <div className="usuario">
-              <img src={post.imagem} alt={post.name} />
+              <img data-test="post-image" src={post.imagem} alt={post.name} />
               {post.name}
             </div>
             <div className="acoes">
@@ -125,6 +125,7 @@ export default function Posts() {
             <div className="acoes">
               <div>
                 <ion-icon
+                  data-test="like-post"
                   onClick={() => handleClickLike(post.id)}
                   name={
                     postLikes.find(like => like.id === post.id).isLiked
@@ -142,6 +143,7 @@ export default function Posts() {
               </div>
               <div>
                 <ion-icon
+                  data-test="save-post"
                   onClick={() => handleClickBookmark(post.id)}
                   name={
                     postBookmarks.find(bookmark => bookmark.id === post.id)
@@ -160,9 +162,11 @@ export default function Posts() {
                 <strong>
                   {' '}
                   outras{' '}
-                  {postLikes
-                    .find(like => like.id === post.id)
-                    .likes.toLocaleString('pt-BR')}{' '}
+                  <span data-test="likes-number">
+                    {postLikes
+                      .find(like => like.id === post.id)
+                      .likes.toLocaleString('pt-BR')}{' '}
+                  </span>
                   pessoas
                 </strong>
               </div>
