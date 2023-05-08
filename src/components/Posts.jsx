@@ -117,7 +117,7 @@ export default function Posts() {
 
           <div
             className="conteudo"
-            onClick={() => handleImageClickLike(post.id)}
+            onDoubleClick={() => handleImageClickLike(post.id)}
             data-test="post-image"
           >
             <img src={post.imgConteudo} alt={post.conteudoName} />
