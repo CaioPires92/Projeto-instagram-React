@@ -95,8 +95,6 @@ export default function Posts() {
     setPostLikes(prevPostLikes => {
       return prevPostLikes.map(postLike => {
         if (postLike.id === postId && !postLike.isLiked) {
-          setShowHeart(true)
-          setTimeout(() => setShowHeart(false), 500)
           return {
             ...postLike,
             isLiked: true,
@@ -106,6 +104,8 @@ export default function Posts() {
         return postLike
       })
     })
+    setShowHeart(true)
+    setTimeout(() => setShowHeart(false), 500)
   }
 
   return (
