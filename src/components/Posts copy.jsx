@@ -1,6 +1,3 @@
-import React from 'react'
-import '../styles/animacao.css'
-
 import { useState } from 'react'
 
 export default function Posts() {
@@ -43,8 +40,6 @@ export default function Posts() {
       isBookmarked: false
     }
   ]
-
-  let [showHeart, setShowHeart] = useState(false)
 
   let [postBookmarks, setPostBookmarks] = useState(
     listaPost.map(post => ({
@@ -95,8 +90,6 @@ export default function Posts() {
     setPostLikes(prevPostLikes => {
       return prevPostLikes.map(postLike => {
         if (postLike.id === postId && !postLike.isLiked) {
-          setShowHeart(true)
-          setTimeout(() => setShowHeart(false), 500)
           return {
             ...postLike,
             isLiked: true,
@@ -123,16 +116,22 @@ export default function Posts() {
           </div>
 
           <div
-            className="conteudo"
+            className="conteudo "
             onDoubleClick={() => handleImageClickLike(post.id)}
             data-test="post-image"
           >
             <img src={post.imgConteudo} alt={post.conteudoName} />
-            {showHeart && (
-              <div className="heart">
-                <ion-icon name="heart"></ion-icon>
-              </div>
-            )}
+            <div
+              className={`heart ${
+                postLikes.find(
+                  postLike => postLike.id === post.id && postLike.isLiked
+                )
+                  ? 'heart-visible'
+                  : 'heart-hidden'
+              }`}
+            >
+              <ion-icon name="heart"></ion-icon>
+            </div>
           </div>
 
           <div className="fundo">

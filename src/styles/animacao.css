@@ -1,0 +1,43 @@
+.conteudo {
+  position: relative;
+}
+
+.conteudo .heart {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0;
+}
+
+.conteudo .heart ion-icon {
+  animation: heartGrow 0.3s ease-in-out forwards;
+}
+
+.conteudo .heart-visible ion-icon {
+  animation: heartGrow 0.3s ease-in-out forwards,
+    heartShrink 0.3s 0.6s ease-in-out forwards;
+}
+
+@keyframes heartGrow {
+  from {
+    transform: scale(0.2);
+    font-size: 0;
+  }
+  to {
+    transform: scale(1);
+    font-size: 10rem;
+  }
+}
+
+@keyframes heartShrink {
+  from {
+    transform: scale(1);
+    font-size: 10rem;
+  }
+  to {
+    transform: scale(0.2);
+    font-size: 0;
+  }
+}
